@@ -1,0 +1,22 @@
+﻿-debug true
+set-reserved-ips-file {C:\Users\Demon\source\repos\DHCP_Server\DHCP_Server\config\_res_ip.cg}
+load-reserve-ips
+set-gateway 10.0.0.1
+set-nic {Qualcomm FastConnect 7800 Wi-Fi 7 High Band Simultaneous (HBS) Network Adapter}
+new-policy {MyPolicy}
+set-current-policy {MyPolicy}
+set-ipaddress 10.0.0.1
+configure-policy {MyPolicy}
+-ip-range-start 10.0.0.100
+-ip-range-end 10.0.0.200
+-subnet-mask 255.255.255.0
+-default-gateway 10.0.0.1
+-lease-time 86400
+-renewal-time 43200
+-rebinding-time 64800
+-logging true
+add-dns-server 8.8.8.8
+add-dns-server 10.0.0.2
+exit
+start-dhcp
+show-dhcp
